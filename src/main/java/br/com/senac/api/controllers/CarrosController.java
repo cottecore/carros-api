@@ -12,6 +12,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/carros")
+@CrossOrigin
 public class CarrosController {
     private CarrosService carrosService;
 
@@ -68,6 +69,7 @@ public class CarrosController {
             carrosService.deletar(id);
             return ResponseEntity.ok(null);
         } catch (RuntimeException e) {
+            e.printStackTrace();
             return ResponseEntity
                     .badRequest()
                     .body(null);

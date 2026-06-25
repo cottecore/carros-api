@@ -46,9 +46,11 @@ public class CarrosService {
     public void deletar(Long id) {
         if(carrosRepositorio.existsById(id)) {
             carrosRepositorio.deleteById(id);
+        }else {
+            throw new RuntimeException("Carro nao encontrado!");
+
         }
 
-        throw new RuntimeException("Carro nao encontrado!");
     }
 
     public Carros listarById(Long id){
